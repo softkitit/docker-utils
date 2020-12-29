@@ -1,0 +1,25 @@
+influxdb:
+  image: influxdb:1.8.0
+  container_name: influxdb
+  ports:
+    - "8083:8083"
+    - "8086:8086"
+    - "8090:8090"
+  env_file:
+    - 'env.influxdb'
+  volumes:
+    # Data persistency
+    - ./data/influxdb:/var/lib/influxdb
+
+grafana:
+  image: grafana/grafana:6.7.3-ubuntu
+  container_name: grafana
+  ports:
+    - "3000:3000"
+  env_file:
+    - 'env.grafana'
+  user: "0"
+  links:
+    - influxdb
+  volumes:
+    - ./data/grafana:/var/lib/grafana

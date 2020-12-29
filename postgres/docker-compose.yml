@@ -1,0 +1,13 @@
+# Please note we are using Docker Compose version 3
+version: '3'
+services:
+  db:
+    image: postgres:11
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: softkit
+      POSTGRES_PASSWORD: 1qaz2wsXX
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
