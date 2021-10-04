@@ -17,6 +17,7 @@ services:
         hard: -1
     volumes:
       - data01:/usr/share/elasticsearch/data
+      - ./jvm.options:/usr/share/elasticsearch/config/jvm.options
     ports:
       - 9200:9200
     networks:
