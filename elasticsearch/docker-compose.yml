@@ -8,6 +8,9 @@ services:
       - cluster.name=es-docker-cluster
       - cluster.initial_master_nodes=es01
       - bootstrap.memory_lock=true
+#      optimised for low search cluster
+#      https://www.elastic.co/guide/en/elasticsearch/reference/master/index-modules.html#index-refresh-interval-setting
+      - index.refresh_interval=300s
       - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
       - http.cors.enabled=true
       - http.cors.allow-origin=/.*/
